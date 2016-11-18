@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XamarinSamples.ImplicitXamlEx">
+
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			
+			<Style TargetType = "Label">
+				<Setter Property="Text" Value="This is Style One-1"/>
+				<Setter Property="TextColor" Value="Red"/>
+				<Setter Property="BackgroundColor" Value="Blue"/>
+				<Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+<!--				<Setter Property="VerticalOptions" Value="CenterAndExpand"/>-->
+			</Style>
+			<!--<Style TargetType="Label">
+				<Setter Property="Text" Value="This is Style Two-1"/>
+				<Setter Property="TextColor" Value="Blue"/>
+				<Setter Property="BackgroundColor" Value="Red"/>
+				<Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+				<Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+			</Style>-->
+			
+		</ResourceDictionary>
+	</ContentPage.Resources>
+	
+	<ContentPage.Content>
+		<StackLayout Padding="0,20,0,0">
+		<StackLayout Padding="0,20,0,0">
+			<Label  BackgroundColor="Aqua">
+			</Label>
+			<Label Text="This is Style One-2" >
+			</Label>
+			<Label >
+			</Label>
+			<Label Text="This is Style Two-2" >
+			</Label>
+		</StackLayout>
+		<StackLayout Padding="0,20,0,0" BackgroundColor="Teal">
+			<StackLayout.Resources>
+				<ResourceDictionary>
+					<Style x:Key="Type3Label" TargetType="Label">
+						<Setter Property="Text" Value="This is Style Three-1"/>
+						<Setter Property="TextColor" Value="Red"/>
+						<Setter Property="BackgroundColor" Value="Blue"/>
+						<Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+<!--					<Setter Property="VerticalOptions" Value="CenterAndExpand"/>-->
+					</Style>
+
+					<!--<Style x:Key="Type4Label" TargetType="Label">
+						<Setter Property="Text" Value="This is Style Four-1"/>
+						<Setter Property="TextColor" Value="Blue"/>
+						<Setter Property="BackgroundColor" Value="Red"/>
+						<Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+					<Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+					</Style>-->
+				</ResourceDictionary>
+			</StackLayout.Resources>
+			<Label Style="{StaticResource Type3Label}" BackgroundColor="Aqua">
+			</Label>
+			<Label Text="This is Style Three-2" Style="{StaticResource Type3Label}">
+			</Label>
+			<Label Style="{StaticResource Type3Label}">
+			</Label>
+			<Label Text="This is Style Four-2" Style="{StaticResource Type3Label}">
+			</Label>
+		</StackLayout>
+	</StackLayout>
+	</ContentPage.Content>
+	
+</ContentPage>

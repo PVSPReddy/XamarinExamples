@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XamarinSamples.AbsoluteLayoutXamlEx">
+	<ContentPage.Content>
+
+		<AbsoluteLayout BackgroundColor="Olive" Padding="0,20,0,0" >
+			
+			<StackLayout x:Name="stackHolder1" BackgroundColor="Teal" Padding="20,20,0,0" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" >
+				<Label Text="This is on background stack layout" TextColor="White" HorizontalTextAlignment="Center" >
+				</Label>
+				
+				<StackLayout Orientation="Horizontal">
+					<Label Text="First Name:" TextColor="White" HorizontalTextAlignment="Center" HorizontalOptions="StartAndExpand" >
+					</Label>
+					<Entry Placeholder="Enter your FirstName" TextColor="White" BackgroundColor="Maroon" HorizontalOptions="EndAndExpand" >
+					</Entry>
+				</StackLayout>
+
+				<StackLayout Orientation="Horizontal">
+					<Label Text="Last Name:" TextColor="White" HorizontalTextAlignment="Center" HorizontalOptions="StartAndExpand" >
+					</Label>
+					<Entry Placeholder="Enter your LastName" TextColor="White" BackgroundColor="Maroon" HorizontalOptions="EndAndExpand" >
+					</Entry>
+				</StackLayout>
+
+				<StackLayout Orientation="Horizontal">
+					<Label Text="Mobile No:" TextColor="White" HorizontalTextAlignment="Center" HorizontalOptions="StartAndExpand" >
+					</Label>
+					<Entry Placeholder="Enter your Mobile No" TextColor="White" BackgroundColor="Maroon" HorizontalOptions="EndAndExpand" >
+					</Entry>
+				</StackLayout>
+
+				<StackLayout Orientation="Horizontal">
+					<Label Text="Age:" TextColor="White" HorizontalTextAlignment="Center" HorizontalOptions="StartAndExpand" >
+					</Label>
+					<Entry Placeholder="Enter your Age           " TextColor="White" BackgroundColor="Maroon" HorizontalOptions="EndAndExpand" >
+					</Entry>
+				</StackLayout>
+
+				<Button Text="OPen Hidden View" TextColor="White" HeightRequest="30" BackgroundColor="Maroon" HorizontalOptions="CenterAndExpand" Clicked="OpenClicked">
+				</Button>
+				
+			</StackLayout>
+
+			<StackLayout x:Name="stackHolder2" BackgroundColor="Aqua" IsVisible="false" Padding="20,20,0,0" AbsoluteLayout.LayoutBounds="0.4,0.3,0.8,0.9" AbsoluteLayout.LayoutFlags="All" >
+				<Label Text="This is on OverLay stack layout" TextColor="White" HorizontalTextAlignment="Center" >
+				</Label>
+				<Button Text="Close Hidden View" TextColor="White" HeightRequest="30" BackgroundColor="Maroon" HorizontalOptions="CenterAndExpand" Clicked="CloseClicked">
+				</Button>
+			</StackLayout>
+			
+		</AbsoluteLayout>
+		
+	</ContentPage.Content>
+</ContentPage>

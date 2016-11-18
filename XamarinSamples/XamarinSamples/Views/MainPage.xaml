@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XamarinSamples.MainPage">
+
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<!--<Style x:key="FirstOne" TargetType="Label">
+				<Setter Property="TextColor" Value="White"/>
+				<Setter Property="HorizontalTextAlignment" Value="Center"/>
+				<Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+			</Style>-->
+			<!-- the above one is of explicit type it always needs a key -->
+			
+			<Style TargetType="Label">
+				<Setter Property="TextColor" Value="White"/>
+				<Setter Property="HorizontalTextAlignment" Value="Center"/>
+				<Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+			</Style>
+			<!-- the above one is of implicit type it applies to all the labels -->
+
+<!--			<Style TargetType="Label.GestureRecognizers">-->
+			<!--<Style TargetType="TapGestureRecognizer">
+				<Setter Property="NumberOfTapsRequired" Value="1"/>
+				<Setter Property="Command" Value="GoToPage"/>
+			</Style>-->
+			
+		</ResourceDictionary>
+	</ContentPage.Resources>
+	
+	<ContentPage.Content>
+
+		<StackLayout Padding="10,20,10,10" BackgroundColor="Teal">
+			<Label x:Name="allLayouts" Text="Different Types Of Layouts">
+				<!--<Label.GestureRecognizers>
+					<TapGestureRecognizer />
+				</Label.GestureRecognizers>-->
+			</Label>
+			<Label x:Name="maps" Text="Maps Page">
+			</Label>
+			<Label x:Name="styles" Text="Styles Examples Page">
+			</Label>
+		</StackLayout>
+		
+	</ContentPage.Content>
+	
+</ContentPage>
+<!--Tapped="GoToPage"-->
