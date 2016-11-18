@@ -64,7 +64,7 @@
 <!--									<Setter Property="PlaceholderColor" Value="White"/>-->
 									<Setter Property="Grid.Column" Value="1"/>
 									<Setter Property="TextColor" Value="Black"/>
-									<Setter Property="HorizontalTextAlignment" Value="Center"/>
+<!--									<Setter Property="HorizontalTextAlignment" Value="Center"/>-->
 									<Setter Property="HorizontalOptions" Value="Start"/>
 								</Style>
 								<Style TargetType="Button">
@@ -110,10 +110,86 @@
 								</Style>
 							</ResourceDictionary>
 						</StackLayout.Resources>
-						<Button Text=" Submit "></Button>
-						<Button Text="   Clear   "></Button>
+						<Button Text=" Submit " Clicked="SubmitForm"></Button>
+						<Button Text="   Clear   " Clicked="ClearForm"></Button>
 				</StackLayout>
 			</StackLayout>
+
+
+			<StackLayout x:Name="overlayDisplayRegForm" BackgroundColor="Gray" IsVisible="false" Padding="10,20,10,5" AbsoluteLayout.LayoutBounds="0.5,0.35,0.8,0.7" AbsoluteLayout.LayoutFlags="All">
+
+				<Label Text="Enter Details To Register " TextColor="White" HorizontalOptions="Center" HorizontalTextAlignment="Center">
+				</Label> 
+				<RelativeLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+					<Grid
+							RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0, Constant=0}"
+							RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0, Constant=0}"
+							RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=0}"
+							RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=0}">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="1*">
+							</RowDefinition>
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="1*"/>
+							<ColumnDefinition Width="2*"/>
+						</Grid.ColumnDefinitions>
+						<Grid.Resources>
+							<ResourceDictionary>
+								<Style x:key="static" TargetType="Label">
+									<Setter Property="TextColor" Value="Black"/>
+									<Setter Property="Grid.Column" Value="0"/>
+									<Setter Property="HorizontalTextAlignment" Value="Start"/>
+									<Setter Property="HorizontalOptions" Value="Start"/>
+								</Style>
+								<Style x:key="dynamic" TargetType="Label">
+									<Setter Property="TextColor" Value="Black"/>
+									<Setter Property="Grid.Column" Value="1"/>
+									<Setter Property="HorizontalTextAlignment" Value="Start"/>
+									<Setter Property="HorizontalOptions" Value="Start"/>
+								</Style>
+								<Style TargetType="Button">
+									<Setter Property="BackgroundColor" Value="Maroon"/>
+									<Setter Property="TextColor" Value="White"/>
+									<Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+									<!--<Setter Property="Clicked" Value="CloseRegForm"/>-->
+								</Style>
+							</ResourceDictionary>
+						</Grid.Resources>
+						<Button Text="       Close       " Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Clicked="CloseDisplayForm"></Button>
+						
+						<Label Text="First Name" Style="{StaticResource static}" Grid.Row="1" ></Label>
+						<Label x:Name="fNameDisplay" Style="{StaticResource dynamic}" Grid.Row="1" ></Label>
+						
+						<Label Text="Last Name" Style="{StaticResource static}"  Grid.Row="2" ></Label>
+						<Label x:Name="lNameDisplay" Style="{StaticResource dynamic}"  Grid.Row="2" ></Label>
+						
+						<Label Text="Age" Style="{StaticResource static}"  Grid.Row="3" ></Label>
+						<Label x:Name="ageDisplay" Style="{StaticResource dynamic}"  Grid.Row="3" ></Label>
+
+						<Label Text="Mobile Number" Style="{StaticResource static}"  Grid.Row="4" ></Label>
+						<Label x:Name="mobileDisplay" Style="{StaticResource dynamic}"  Grid.Row="4" ></Label>
+						 
+						<Label Text="Email Address" Style="{StaticResource static}"  Grid.Row="5" ></Label>
+						<Label x:Name="emailDisplay" Style="{StaticResource dynamic}"  Grid.Row="5" ></Label>
+
+						<Label Text="State Names" Style="{StaticResource static}" Grid.Row="6" ></Label>
+						<Label x:Name="stateDisplay" Style="{StaticResource dynamic}" Grid.Row="6" ></Label>
+
+						<Label Text="City Names"  Style="{StaticResource static}" Grid.Row="7" ></Label>
+						<Label x:Name="cityDisplay" Style="{StaticResource dynamic}" Grid.Row="7" ></Label>
+
+					</Grid>
+				</RelativeLayout>
+			</StackLayout>
+			
 			
 		</AbsoluteLayout>
 		
