@@ -21,6 +21,7 @@ namespace XamarinSamples
 			allLayouts.GestureRecognizers.Add(gst);
 			maps.GestureRecognizers.Add(gst);
 			styles.GestureRecognizers.Add(gst);
+			controls.GestureRecognizers.Add(gst);
 		}
 
 		public void GoToPage(object sender, EventArgs args)
@@ -42,6 +43,11 @@ namespace XamarinSamples
 					
 					case "Styles Examples Page":
 					Navigation.PushAsync(new MainStylesPage());
+					//Navigation.PushModalAsync(new NavigationPage(new MainStylesPage()));
+					break;
+
+					case "Controls Examples Page":
+					Navigation.PushAsync(new SimplePickerCSharpEx());
 					//Navigation.PushModalAsync(new NavigationPage(new MainStylesPage()));
 					break;
 			}

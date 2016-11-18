@@ -1,5 +1,121 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XamarinSamples.PopupRegistrationPage">
 	<ContentPage.Content>
+
+		<AbsoluteLayout>
+			
+			<StackLayout x:Name="holder" BackgroundColor="Teal" Padding="10,20,10,5" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+				<StackLayout Orientation="Horizontal">
+					<Label Text="Total Members Registered " TextColor="White" HorizontalOptions="Center" HorizontalTextAlignment="Center">
+					</Label> 
+					<Button Text="Add New" BackgroundColor="Maroon" HorizontalOptions="EndAndExpand" Clicked="AddNew">
+					</Button>
+				</StackLayout>
+				<ListView x:Name="registeredData" BackgroundColor="White" HasUnevenRows="true" SeparatorColor="Maroon" >
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<ViewCell>
+								<StackLayout Orientation="Horizontal">
+									<Label Text="{Binding firstName}">
+									</Label>
+									<Label Text="{Binding lasteName}">
+									</Label>
+								</StackLayout>
+							</ViewCell>
+						</DataTemplate>
+					</ListView.ItemTemplate>
+				</ListView>
+			</StackLayout>
+
+			<StackLayout x:Name="overlayRegForm" BackgroundColor="Gray" IsVisible="false" Padding="10,20,10,5" AbsoluteLayout.LayoutBounds="0.5,0.35,0.8,0.7" AbsoluteLayout.LayoutFlags="All">
+
+				<Label Text="Enter Details To Register " TextColor="White" HorizontalOptions="Center" HorizontalTextAlignment="Center">
+				</Label> 
+				<RelativeLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+					<Grid
+							RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0, Constant=0}"
+							RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0, Constant=0}"
+							RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=0}"
+							RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=0}">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="1*">
+							</RowDefinition>
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="1*"/>
+							<ColumnDefinition Width="2*"/>
+						</Grid.ColumnDefinitions>
+						<Grid.Resources>
+							<ResourceDictionary>
+								<Style TargetType="Label">
+									<Setter Property="TextColor" Value="Black"/>
+									<Setter Property="Grid.Column" Value="0"/>
+									<Setter Property="HorizontalTextAlignment" Value="Start"/>
+									<Setter Property="HorizontalOptions" Value="Start"/>
+								</Style>
+								<Style TargetType="Entry">
+<!--									<Setter Property="PlaceholderColor" Value="White"/>-->
+									<Setter Property="Grid.Column" Value="1"/>
+									<Setter Property="TextColor" Value="Black"/>
+									<Setter Property="HorizontalTextAlignment" Value="Center"/>
+									<Setter Property="HorizontalOptions" Value="Start"/>
+								</Style>
+								<Style TargetType="Button">
+									<Setter Property="BackgroundColor" Value="Maroon"/>
+									<Setter Property="TextColor" Value="White"/>
+									<Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+									<!--<Setter Property="Clicked" Value="CloseRegForm"/>-->
+								</Style>
+							</ResourceDictionary>
+						</Grid.Resources>
+						<Button Text="       Close       " Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Clicked="CloseRegForm"></Button>
+						
+						<Label x:Name="fName" Text="First Name" Grid.Row="1" ></Label>
+						<Entry x:Name="fNameEntry" Placeholder="Enter First Name"  Grid.Row="1" ></Entry>
+						
+						<Label x:Name="lName" Text="Last Name"  Grid.Row="2" ></Label>
+						<Entry x:Name="lNameEntry" Placeholder="Enter Last Name"  Grid.Row="2" ></Entry>
+						
+						<Label x:Name="age" Text="Age"  Grid.Row="3" ></Label>
+						<Entry x:Name="ageEntry" Placeholder="Enter Age"  Grid.Row="3" ></Entry>
+						
+						<Label x:Name="mobile" Text="Mobile Number"  Grid.Row="4" ></Label>
+						<Entry x:Name="mobileEntry" Placeholder="Enter Mobile Number"  Grid.Row="4" ></Entry>
+						 
+						<Label x:Name="email" Text="Email Address"  Grid.Row="5" ></Label>
+						<Entry x:Name="emailEntry" Placeholder="Email Address" Grid.Column="1" Grid.Row="5" ></Entry>
+						
+						<Label x:Name="state" Text="State Names" Grid.Row="6" ></Label>
+						<Entry x:Name="stateEntry" Placeholder="Enter State Names"  Grid.Row="6" ></Entry>
+						
+						<Label x:Name="city" Text="City Names"  Grid.Row="7" ></Label>
+						<Entry x:Name="cityEntry" Placeholder="Enter City Names"  Grid.Row="7" ></Entry>
+						
+					</Grid>
+				</RelativeLayout>
+				<StackLayout Orientation="Horizontal">
+						<StackLayout.Resources>
+							<ResourceDictionary>
+								<Style TargetType="Button">
+									<Setter Property="BackgroundColor" Value="Maroon"/>
+									<Setter Property="TextColor" Value="White"/>
+									<Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+								</Style>
+							</ResourceDictionary>
+						</StackLayout.Resources>
+						<Button Text=" Submit "></Button>
+						<Button Text="   Clear   "></Button>
+				</StackLayout>
+			</StackLayout>
+			
+		</AbsoluteLayout>
+		
 	</ContentPage.Content>
 </ContentPage>

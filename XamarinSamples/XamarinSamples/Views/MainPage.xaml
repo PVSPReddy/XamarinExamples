@@ -38,6 +38,8 @@
 			</Label>
 			<Label x:Name="styles" Text="Styles Examples Page">
 			</Label>
+			<Label x:Name="controls" Text="Controls Examples Page">
+			</Label>
 		</StackLayout>
 		
 	</ContentPage.Content>
