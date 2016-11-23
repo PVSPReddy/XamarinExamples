@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XamarinSamples.DynamicGridExOne">
+	<ContentPage.Content>
+
+		<StackLayout BackgroundColor="Teal" Padding="10,20,10,5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+			
+
+				
+				<Label Text="Making a Dynamic Grid" TextColor="White">
+				</Label>
+			<ScrollView Orientation="Both">
+				<Grid x:Name="dynamicGrid" BackgroundColor="Navy" RowSpacing="10" ColumnSpacing="10">
+					<!--<Grid.RowDefinitions>
+						<RowDefinition Height="30"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="20"/>
+					</Grid.ColumnDefinitions>-->
+				</Grid>
+			</ScrollView>
+				<StackLayout Orientation = "Horizontal" VerticalOptions="EndAndExpand">
+					<Button x:Name="addRow" Text="Add Row" TextColor="White" BackgroundColor="Maroon" HorizontalOptions="CenterAndExpand" Clicked="AddRowClicked">
+					</Button>
+					<Button x:Name="addColumn" Text="Add Column" TextColor="White" BackgroundColor="Maroon" HorizontalOptions="CenterAndExpand" Clicked="AddColumnClicked">
+					</Button>
+				</StackLayout>
+				<!--<StackLayout Orientation = "Horizontal">
+					<Button x:Name="deleteRow" Text="Delete Row" TextColor="White" BackgroundColor="Maroon">
+					</Button>
+					<Button x:Name="deleteColumn" Text="Delete Column" TextColor="White" BackgroundColor="Maroon">
+					</Button>
+				</StackLayout>-->
+				
+			
+			
+		</StackLayout>
+		
+	</ContentPage.Content>
+</ContentPage>

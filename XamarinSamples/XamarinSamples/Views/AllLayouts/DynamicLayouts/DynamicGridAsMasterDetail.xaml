@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XamarinSamples.DynamicGridAsMasterDetail">
+	<ContentPage.Content>
+
+<!--		<StackLayout BackgroundColor="Teal" Padding="10,20,10,5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">-->
+			
+
+				
+				<!--<Label Text="Making a Dynamic Grid" TextColor="White">
+				</Label>-->
+<!--			<ScrollView Orientation="Both">-->
+				<Grid x:Name="dynamicGrid" BackgroundColor="Navy" RowSpacing="0" ColumnSpacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="1*"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="3*"/>
+					</Grid.ColumnDefinitions>
+				<StackLayout Padding="10,20,10,5" BackgroundColor="Green" Grid.Row="0" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+					<Label Text="trying to save this grid holder to" TextColor="White" BackgroundColor="Blue">
+					<Label.GestureRecognizers>
+						<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OpenMenu" />
+					</Label.GestureRecognizers>
+					</Label>
+				</StackLayout>
+				</Grid>
+<!--			</ScrollView>-->
+				<!--<StackLayout Orientation = "Horizontal" VerticalOptions="EndAndExpand">
+					<Button x:Name="addRow" Text="Add Row" TextColor="White" BackgroundColor="Maroon" HorizontalOptions="CenterAndExpand" Clicked="AddRowClicked">
+					</Button>
+					<Button x:Name="addColumn" Text="Add Column" TextColor="White" BackgroundColor="Maroon" HorizontalOptions="CenterAndExpand" Clicked="AddColumnClicked">
+					</Button>
+				</StackLayout>-->
+				
+				
+			
+			
+<!--		</StackLayout>-->
+		
+	</ContentPage.Content>
+</ContentPage>
