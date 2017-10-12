@@ -6,7 +6,7 @@
 			
 			<StackLayout x:Name="holder" BackgroundColor="Teal" Padding="10,20,10,5" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
 				<StackLayout Orientation="Horizontal">
-					<Label Text="Total Members Registered " TextColor="White" HorizontalOptions="Center" HorizontalTextAlignment="Center">
+					<Label x:Name="totalMembers" Text="Total Members Registered " TextColor="White" HorizontalOptions="Center" HorizontalTextAlignment="Center">
 					</Label> 
 					<Button Text="Add New" BackgroundColor="Maroon" HorizontalOptions="EndAndExpand" Clicked="AddNew">
 					</Button>
@@ -52,7 +52,7 @@
 							<ColumnDefinition Width="1*"/>
 							<ColumnDefinition Width="2*"/>
 						</Grid.ColumnDefinitions>
-						<Grid.Resources>
+						<!--<Grid.Resources>
 							<ResourceDictionary>
 								<Style TargetType="Label">
 									<Setter Property="TextColor" Value="Black"/>
@@ -61,20 +61,17 @@
 									<Setter Property="HorizontalOptions" Value="Start"/>
 								</Style>
 								<Style TargetType="Entry">
-<!--									<Setter Property="PlaceholderColor" Value="White"/>-->
 									<Setter Property="Grid.Column" Value="1"/>
 									<Setter Property="TextColor" Value="Black"/>
-<!--									<Setter Property="HorizontalTextAlignment" Value="Center"/>-->
 									<Setter Property="HorizontalOptions" Value="Start"/>
 								</Style>
 								<Style TargetType="Button">
 									<Setter Property="BackgroundColor" Value="Maroon"/>
 									<Setter Property="TextColor" Value="White"/>
 									<Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
-									<!--<Setter Property="Clicked" Value="CloseRegForm"/>-->
 								</Style>
 							</ResourceDictionary>
-						</Grid.Resources>
+						</Grid.Resources>-->
 						<Button Text="       Close       " Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Clicked="CloseRegForm"></Button>
 						
 						<Label x:Name="fName" Text="First Name" Grid.Row="1" ></Label>
@@ -101,7 +98,7 @@
 					</Grid>
 				</RelativeLayout>
 				<StackLayout Orientation="Horizontal">
-						<StackLayout.Resources>
+						<!--<StackLayout.Resources>
 							<ResourceDictionary>
 								<Style TargetType="Button">
 									<Setter Property="BackgroundColor" Value="Maroon"/>
@@ -109,14 +106,152 @@
 									<Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
 								</Style>
 							</ResourceDictionary>
-						</StackLayout.Resources>
+						</StackLayout.Resources>-->
 						<Button Text=" Submit " Clicked="SubmitForm"></Button>
 						<Button Text="   Clear   " Clicked="ClearForm"></Button>
 				</StackLayout>
 			</StackLayout>
 
 
-			<StackLayout x:Name="overlayDisplayRegForm" BackgroundColor="Gray" IsVisible="false" Padding="10,20,10,5" AbsoluteLayout.LayoutBounds="0.5,0.35,0.8,0.7" AbsoluteLayout.LayoutFlags="All">
+
+			<StackLayout x:Name="overlayChooseForm" BackgroundColor="Gray" IsVisible="false" Padding="10,20,10,5" AbsoluteLayout.LayoutBounds="0.5,0.35,0.8,0.7" AbsoluteLayout.LayoutFlags="All">
+
+				<Label Text="Choose An Option" TextColor="White" HorizontalOptions="Center" HorizontalTextAlignment="Center">
+				</Label> 
+				<RelativeLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+					<StackLayout
+							RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0, Constant=0}"
+							RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0, Constant=0}"
+							RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=0}"
+							RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=0}">
+						<!--<StackLayout.Resources>
+							<ResourceDictionary>
+								<Style TargetType="Label">
+									<Setter Property="TextColor" Value="Black"/>
+									<Setter Property="HorizontalTextAlignment" Value="Start"/>
+									<Setter Property="HorizontalOptions" Value="Start"/>
+								</Style>
+								<Style TargetType="Label">
+									<Setter Property="TextColor" Value="Black"/>
+									<Setter Property="HorizontalTextAlignment" Value="Start"/>
+									<Setter Property="HorizontalOptions" Value="Start"/>
+								</Style>
+								<Style TargetType="Button">
+									<Setter Property="BackgroundColor" Value="Maroon"/>
+									<Setter Property="TextColor" Value="White"/>
+									<Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+								</Style>
+							</ResourceDictionary>
+						</StackLayout.Resources>-->
+						<Button Text="       Close       "  Clicked="CloseRegForm"></Button>
+						
+						<Label  Text="Display Details" ></Label>
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="DisplayDetailsForm" />
+						</Label.GestureRecognizers>
+						
+						<Label  Text="Edit/ Update Details" ></Label>
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="EditDetailsForm" />
+						</Label.GestureRecognizers>
+						
+						<Label  Text="Delete Details" ></Label>
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="DeleteDetailsForm" />
+						</Label.GestureRecognizers>
+						
+					</StackLayout>
+				</RelativeLayout>
+			</StackLayout>
+
+
+			<StackLayout x:Name="overlayEditForm" BackgroundColor="Gray" IsVisible="false" Padding="10,20,10,5" AbsoluteLayout.LayoutBounds="0.5,0.35,0.8,0.7" AbsoluteLayout.LayoutFlags="All">
+
+				<Label Text="Enter Details To Register " TextColor="White" HorizontalOptions="Center" HorizontalTextAlignment="Center">
+				</Label> 
+				<RelativeLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+					<Grid
+							RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0, Constant=0}"
+							RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0, Constant=0}"
+							RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=0}"
+							RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=0}">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="1*">
+							</RowDefinition>
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="1*"/>
+							<ColumnDefinition Width="2*"/>
+						</Grid.ColumnDefinitions>
+						<!--<Grid.Resources>
+							<ResourceDictionary>
+								<Style TargetType="Label">
+									<Setter Property="TextColor" Value="Black"/>
+									<Setter Property="Grid.Column" Value="0"/>
+									<Setter Property="HorizontalTextAlignment" Value="Start"/>
+									<Setter Property="HorizontalOptions" Value="Start"/>
+								</Style>
+								<Style TargetType="Entry">
+									<Setter Property="Grid.Column" Value="1"/>
+									<Setter Property="TextColor" Value="Black"/>
+									<Setter Property="HorizontalOptions" Value="Start"/>
+								</Style>
+								<Style TargetType="Button">
+									<Setter Property="BackgroundColor" Value="Maroon"/>
+									<Setter Property="TextColor" Value="White"/>
+									<Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+								</Style>
+							</ResourceDictionary>
+						</Grid.Resources>-->
+						<Button Text="       Close       " Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Clicked="CloseRegForm"></Button>
+						
+						<Label x:Name="fNameEdit" Text="First Name" Grid.Row="1" ></Label>
+						<Entry x:Name="fNameEntryEdit" Placeholder=""  Grid.Row="1" ></Entry>
+						
+						<Label x:Name="lNameEdit" Text="Last Name"  Grid.Row="2" ></Label>
+						<Entry x:Name="lNameEntryEdit" Placeholder=""  Grid.Row="2" ></Entry>
+						
+						<Label x:Name="ageEdit" Text="Age"  Grid.Row="3" ></Label>
+						<Entry x:Name="ageEntryEdit" Placeholder=""  Grid.Row="3" ></Entry>
+						
+						<Label x:Name="mobileEdit" Text="Mobile Number"  Grid.Row="4" ></Label>
+						<Entry x:Name="mobileEntryEdit" Placeholder=""  Grid.Row="4" ></Entry>
+						 
+						<Label x:Name="emailEdit" Text="Email Address"  Grid.Row="5" ></Label>
+						<Entry x:Name="emailEntryEdit" Placeholder="" Grid.Column="1" Grid.Row="5" ></Entry>
+						
+						<Label x:Name="stateEdit" Text="State Names" Grid.Row="6" ></Label>
+						<Entry x:Name="stateEntryEdit" Placeholder=""  Grid.Row="6" ></Entry>
+						
+						<Label x:Name="cityEdit" Text="City Names"  Grid.Row="7" ></Label>
+						<Entry x:Name="cityEntryEdit" Placeholder=""  Grid.Row="7" ></Entry>
+						
+					</Grid>
+				</RelativeLayout>
+				<StackLayout Orientation="Horizontal">
+						<!--<StackLayout.Resources>
+							<ResourceDictionary>
+								<Style TargetType="Button">
+									<Setter Property="BackgroundColor" Value="Maroon"/>
+									<Setter Property="TextColor" Value="White"/>
+									<Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+								</Style>
+							</ResourceDictionary>
+						</StackLayout.Resources>-->
+						<Button Text=" Submit " Clicked="SubmitForm"></Button>
+						<Button Text="   Clear   " Clicked="ClearForm"></Button>
+				</StackLayout>
+			</StackLayout>
+
+
+			<!--<StackLayout x:Name="overlayDisplayRegForm" BackgroundColor="Gray" IsVisible="false" Padding="10,20,10,5" AbsoluteLayout.LayoutBounds="0.5,0.35,0.8,0.7" AbsoluteLayout.LayoutFlags="All">
 
 				<Label Text="Enter Details To Register " TextColor="White" HorizontalOptions="Center" HorizontalTextAlignment="Center">
 				</Label> 
@@ -143,13 +278,13 @@
 						</Grid.ColumnDefinitions>
 						<Grid.Resources>
 							<ResourceDictionary>
-								<Style x:key="static" TargetType="Label">
+								<Style TargetType="Label">
 									<Setter Property="TextColor" Value="Black"/>
 									<Setter Property="Grid.Column" Value="0"/>
 									<Setter Property="HorizontalTextAlignment" Value="Start"/>
 									<Setter Property="HorizontalOptions" Value="Start"/>
 								</Style>
-								<Style x:key="dynamic" TargetType="Label">
+								<Style TargetType="Label">
 									<Setter Property="TextColor" Value="Black"/>
 									<Setter Property="Grid.Column" Value="1"/>
 									<Setter Property="HorizontalTextAlignment" Value="Start"/>
@@ -159,37 +294,36 @@
 									<Setter Property="BackgroundColor" Value="Maroon"/>
 									<Setter Property="TextColor" Value="White"/>
 									<Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
-									<!--<Setter Property="Clicked" Value="CloseRegForm"/>-->
 								</Style>
 							</ResourceDictionary>
 						</Grid.Resources>
 						<Button Text="       Close       " Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Clicked="CloseDisplayForm"></Button>
 						
-						<Label Text="First Name" Style="{StaticResource static}" Grid.Row="1" ></Label>
-						<Label x:Name="fNameDisplay" Style="{StaticResource dynamic}" Grid.Row="1" ></Label>
+						<Label Text="First Name" Grid.Row="1" ></Label>
+						<Label x:Name="fNameDisplay" Grid.Row="1" ></Label>
 						
-						<Label Text="Last Name" Style="{StaticResource static}"  Grid.Row="2" ></Label>
-						<Label x:Name="lNameDisplay" Style="{StaticResource dynamic}"  Grid.Row="2" ></Label>
+						<Label Text="Last Name" Grid.Row="2" ></Label>
+						<Label x:Name="lNameDisplay" Grid.Row="2" ></Label>
 						
-						<Label Text="Age" Style="{StaticResource static}"  Grid.Row="3" ></Label>
-						<Label x:Name="ageDisplay" Style="{StaticResource dynamic}"  Grid.Row="3" ></Label>
+						<Label Text="Age" Grid.Row="3" ></Label>
+						<Label x:Name="ageDisplay" Grid.Row="3" ></Label>
 
-						<Label Text="Mobile Number" Style="{StaticResource static}"  Grid.Row="4" ></Label>
-						<Label x:Name="mobileDisplay" Style="{StaticResource dynamic}"  Grid.Row="4" ></Label>
+						<Label Text="Mobile Number" Grid.Row="4" ></Label>
+						<Label x:Name="mobileDisplay" Grid.Row="4" ></Label>
 						 
-						<Label Text="Email Address" Style="{StaticResource static}"  Grid.Row="5" ></Label>
-						<Label x:Name="emailDisplay" Style="{StaticResource dynamic}"  Grid.Row="5" ></Label>
+						<Label Text="Email Address" Grid.Row="5" ></Label>
+						<Label x:Name="emailDisplay" Grid.Row="5" ></Label>
 
-						<Label Text="State Names" Style="{StaticResource static}" Grid.Row="6" ></Label>
-						<Label x:Name="stateDisplay" Style="{StaticResource dynamic}" Grid.Row="6" ></Label>
+						<Label Text="State Names" Grid.Row="6" ></Label>
+						<Label x:Name="stateDisplay" Grid.Row="6" ></Label>
 
-						<Label Text="City Names"  Style="{StaticResource static}" Grid.Row="7" ></Label>
-						<Label x:Name="cityDisplay" Style="{StaticResource dynamic}" Grid.Row="7" ></Label>
+						<Label Text="City Names"  Grid.Row="7" ></Label>
+						<Label x:Name="cityDisplay" Grid.Row="7" ></Label>
 
 					</Grid>
 				</RelativeLayout>
-			</StackLayout>
-			
+			</StackLayout>-->
+
 			
 		</AbsoluteLayout>
 		

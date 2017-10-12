@@ -17,7 +17,7 @@ namespace XamarinSamples
 			{
 				new RegistrationDetails{firstName="df", lastName="dfs", age="34", email="23234dfdf34r", mobile="56464145968", states="dfsds", cities="dfeff" }
 			};
-
+			totalMembers.Text = "Total Members Registered" + "\n" + "(" + dynamicRegdata.Count.ToString() + ")";
 			registeredData.ItemsSource = dynamicRegdata;
 			registeredData.ItemSelected += (object sender, SelectedItemChangedEventArgs e) =>
 			{
@@ -27,18 +27,32 @@ namespace XamarinSamples
 					return;
 				}
 
-				fNameDisplay.Text = data.firstName;
-				lNameDisplay.Text = data.lastName;
-				ageDisplay.Text = data.age;
-				mobile.Text = data.mobile;
-				emailDisplay.Text = data.email;
-				stateDisplay.Text = data.states;
-				cityDisplay.Text = data.cities;
+				//overlayChooseForm.IsVisible = true;
 
-				overlayDisplayRegForm.IsVisible = true;
+				//fNameDisplay.Text = data.firstName;
+				//lNameDisplay.Text = data.lastName;
+				//ageDisplay.Text = data.age;
+				//mobile.Text = data.mobile;
+				//emailDisplay.Text = data.email;
+				//stateDisplay.Text = data.states;
+				//cityDisplay.Text = data.cities;
+
+				//overlayDisplayRegForm.IsVisible = true;
 				holder.IsEnabled = false;
 				((ListView)sender).SelectedItem = null;
 			};
+		}
+		public void DisplayDetailsForm(object sender, EventArgs args)
+		{
+			//overlayChooseForm.IsVisible = true;
+		}
+		public void EditDetailsForm(object sender, EventArgs args)
+		{
+			//overlayEditForm.IsVisible = true;
+		}
+		public void DeleteDetailsForm(object sender, EventArgs args)
+		{
+			
 		}
 
 		public void AddNew(object sender, EventArgs args)
@@ -52,7 +66,12 @@ namespace XamarinSamples
 		}
 		public void SubmitForm(object sender, EventArgs args)
 		{
-			ClearFormData();
+			//if (true)
+			//{
+				dynamicRegdata.Add(new RegistrationDetails { firstName = fNameEntry.Text, lastName = lNameEntry.Text, age = ageEntry.Text, email = emailEntry.Text, mobile = mobileEntry.Text, states = stateEntry.Text, cities = cityEntry.Text });
+				totalMembers.Text = "Total Members Registered" + "\n" + "(" + dynamicRegdata.Count.ToString() + ")";
+				ClearFormData();
+			//}
 		}
 		public void CloseRegForm(object sender, EventArgs args)
 		{
@@ -72,7 +91,10 @@ namespace XamarinSamples
 		}
 		public void CloseDisplayForm(object sender, EventArgs args)
 		{
-			overlayDisplayRegForm.IsVisible = false;
+			//overlayDisplayRegForm.IsVisible = false;
+			//overlayChooseForm.IsVisible = false;
+			//overlayEditForm.IsVisible = false;
+			overlayRegForm.IsVisible = false;
 			holder.IsEnabled = true;
 		}
 
